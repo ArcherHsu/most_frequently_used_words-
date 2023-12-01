@@ -4,11 +4,15 @@ def r_file(file):
     with open(file, 'r') as line:
         for i in line:
             lines.append(i)
+            if len(lines) % 1000 == 0:
+                print('已讀取', len(lines), '筆資料')
+
     return lines        
 
 
 #轉換
 def c_file(lines):
+    print('資料轉換中')
     f_l = []
     for line in lines:
         f = line.split()
@@ -20,6 +24,7 @@ def c_file(lines):
 #計數
 def dis(lines):
     dis ={}
+    print('單字統計中請稍後.....')
     for line in lines:
         for i in line:
             if i in dis:
